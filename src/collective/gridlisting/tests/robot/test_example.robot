@@ -10,7 +10,7 @@
 #
 # 1) Start robot server:
 #
-# $ bin/robot-server --reload-path src collective.gridlisting.testing.COLLECTIVE_FOLDERLISTING_ACCEPTANCE_TESTING
+# $ bin/robot-server --reload-path src collective.gridlisting.testing.COLLECTIVE_GRIDLISTING_ACCEPTANCE_TESTING
 #
 # 2) Run robot tests:
 #

@@ -2,6 +2,6 @@
 <layers>
   <layer
       name="collective.gridlisting"
-      interface="collective.gridlisting.interfaces.ICollectiveFolderlistingLayer"
+      interface="collective.gridlisting.interfaces.ICollectiveGridlistingLayer"
       />
 </layers>

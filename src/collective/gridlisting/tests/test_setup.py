@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """Setup tests for this package."""
 from collective.gridlisting.testing import (  # noqa: E501
-    COLLECTIVE_FOLDERLISTING_INTEGRATION_TESTING,
+    COLLECTIVE_GRIDLISTING_INTEGRATION_TESTING,
 )
 from plone import api
 from plone.app.testing import setRoles
@@ -19,7 +19,7 @@ except ImportError:
 class TestSetup(unittest.TestCase):
     """Test that collective.gridlisting is properly installed."""
 
-    layer = COLLECTIVE_FOLDERLISTING_INTEGRATION_TESTING
+    layer = COLLECTIVE_GRIDLISTING_INTEGRATION_TESTING
 
     def setUp(self):
         """Custom shared utility setup for tests."""
@@ -34,15 +34,15 @@ class TestSetup(unittest.TestCase):
         self.assertTrue(self.installer.is_product_installed("collective.gridlisting"))
 
     def test_browserlayer(self):
-        """Test that ICollectiveFolderlistingLayer is registered."""
-        from collective.gridlisting.interfaces import ICollectiveFolderlistingLayer
+        """Test that ICollectiveGridlistingLayer is registered."""
+        from collective.gridlisting.interfaces import ICollectiveGridlistingLayer
         from plone.browserlayer import utils
 
-        self.assertIn(ICollectiveFolderlistingLayer, utils.registered_layers())
+        self.assertIn(ICollectiveGridlistingLayer, utils.registered_layers())
 
 
 class TestUninstall(unittest.TestCase):
-    layer = COLLECTIVE_FOLDERLISTING_INTEGRATION_TESTING
+    layer = COLLECTIVE_GRIDLISTING_INTEGRATION_TESTING
 
     def setUp(self):
         self.portal = self.layer["portal"]
@@ -60,8 +60,8 @@ class TestUninstall(unittest.TestCase):
         self.assertFalse(self.installer.is_product_installed("collective.gridlisting"))
 
     def test_browserlayer_removed(self):
-        """Test that ICollectiveFolderlistingLayer is removed."""
-        from collective.gridlisting.interfaces import ICollectiveFolderlistingLayer
+        """Test that ICollectiveGridlistingLayer is removed."""
+        from collective.gridlisting.interfaces import ICollectiveGridlistingLayer
         from plone.browserlayer import utils
 
-        self.assertNotIn(ICollectiveFolderlistingLayer, utils.registered_layers())
+        self.assertNotIn(ICollectiveGridlistingLayer, utils.registered_layers())

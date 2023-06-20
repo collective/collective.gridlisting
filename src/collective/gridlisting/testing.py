@@ -10,7 +10,7 @@ from plone.testing import z2
 import collective.gridlisting
 
 
-class CollectiveFolderlistingLayer(PloneSandboxLayer):
+class CollectiveGridlistingLayer(PloneSandboxLayer):
     defaultBases = (PLONE_FIXTURE,)
 
     def setUpZope(self, app, configurationContext):
@@ -29,26 +29,26 @@ class CollectiveFolderlistingLayer(PloneSandboxLayer):
         applyProfile(portal, "collective.gridlisting:default")
 
 
-COLLECTIVE_FOLDERLISTING_FIXTURE = CollectiveFolderlistingLayer()
+COLLECTIVE_GRIDLISTING_FIXTURE = CollectiveGridlistingLayer()
 
 
-COLLECTIVE_FOLDERLISTING_INTEGRATION_TESTING = IntegrationTesting(
-    bases=(COLLECTIVE_FOLDERLISTING_FIXTURE,),
-    name="CollectiveFolderlistingLayer:IntegrationTesting",
+COLLECTIVE_GRIDLISTING_INTEGRATION_TESTING = IntegrationTesting(
+    bases=(COLLECTIVE_GRIDLISTING_FIXTURE,),
+    name="CollectiveGridlistingLayer:IntegrationTesting",
 )
 
 
-COLLECTIVE_FOLDERLISTING_FUNCTIONAL_TESTING = FunctionalTesting(
-    bases=(COLLECTIVE_FOLDERLISTING_FIXTURE,),
-    name="CollectiveFolderlistingLayer:FunctionalTesting",
+COLLECTIVE_GRIDLISTING_FUNCTIONAL_TESTING = FunctionalTesting(
+    bases=(COLLECTIVE_GRIDLISTING_FIXTURE,),
+    name="CollectiveGridlistingLayer:FunctionalTesting",
 )
 
 
-COLLECTIVE_FOLDERLISTING_ACCEPTANCE_TESTING = FunctionalTesting(
+COLLECTIVE_GRIDLISTING_ACCEPTANCE_TESTING = FunctionalTesting(
     bases=(
-        COLLECTIVE_FOLDERLISTING_FIXTURE,
+        COLLECTIVE_GRIDLISTING_FIXTURE,
         REMOTE_LIBRARY_BUNDLE_FIXTURE,
         z2.ZSERVER_FIXTURE,
     ),
-    name="CollectiveFolderlistingLayer:AcceptanceTesting",
+    name="CollectiveGridlistingLayer:AcceptanceTesting",
 )
