@@ -8,7 +8,7 @@ import subprocess
 domain = "collective.gridlisting"
 os.chdir(pkg_resources.resource_filename(domain, ""))
 os.chdir("../../../")
-target_path = "src/collective/folderlisting/"
+target_path = "src/collective/gridlisting/"
 locale_path = target_path + "locales/"
 i18ndude = "./bin/i18ndude"
 

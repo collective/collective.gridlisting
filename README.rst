@@ -49,6 +49,11 @@ Install collective.gridlisting by adding it to your buildout::
 and then running ``bin/buildout``
 
 
+Compatibility
+-------------
+
+Plone 6, Python 3.8 - 3.11
+
 
 Contribute
 ----------
