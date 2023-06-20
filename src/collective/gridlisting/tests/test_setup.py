@@ -33,13 +33,6 @@ class TestSetup(unittest.TestCase):
         """Test if collective.gridlisting is installed."""
         self.assertTrue(self.installer.is_product_installed("collective.gridlisting"))
 
-    def test_browserlayer(self):
-        """Test that ICollectiveGridlistingLayer is registered."""
-        from collective.gridlisting.interfaces import ICollectiveGridlistingLayer
-        from plone.browserlayer import utils
-
-        self.assertIn(ICollectiveGridlistingLayer, utils.registered_layers())
-
 
 class TestUninstall(unittest.TestCase):
     layer = COLLECTIVE_GRIDLISTING_INTEGRATION_TESTING
@@ -58,10 +51,3 @@ class TestUninstall(unittest.TestCase):
     def test_product_uninstalled(self):
         """Test if collective.gridlisting is cleanly uninstalled."""
         self.assertFalse(self.installer.is_product_installed("collective.gridlisting"))
-
-    def test_browserlayer_removed(self):
-        """Test that ICollectiveGridlistingLayer is removed."""
-        from collective.gridlisting.interfaces import ICollectiveGridlistingLayer
-        from plone.browserlayer import utils
-
-        self.assertNotIn(ICollectiveGridlistingLayer, utils.registered_layers())
