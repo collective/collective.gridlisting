@@ -20,10 +20,24 @@ class IGridListingMarker(Interface):
 class IGridListing(model.Schema):
     """ """
 
+    row_css_class = schema.TextLine(
+        title=_("Container row CSS class"),
+        description=_("eg. if you want to set gutter between columns define here."),
+        required=False,
+    )
+
     column_css_class = schema.TextLine(
-        title=_("Column CSS Class"),
+        title=_("Column CSS class"),
         description=_(
             "Use grid css class combinations for column. Example: 'col-12 col-md-6 col-xl-3'"
+        ),
+        required=False,
+    )
+
+    column_content_css_class = schema.TextLine(
+        title=_("Column content CSS class"),
+        description=_(
+            "If you want borders or backgrounds inside the column define it here."
         ),
         required=False,
     )
@@ -50,7 +64,9 @@ class IGridListing(model.Schema):
             "Define grid listing properties. For further information see https://getbootstrap.com/docs/5.3/layout/grid/"
         ),
         fields=[
+            "row_css_class",
             "column_css_class",
+            "column_content_css_class",
             "enable_masonry",
             "masonry_options",
         ],
@@ -64,6 +80,16 @@ class GridListing(object):
         self.context = context
 
     @property
+    def row_css_class(self):
+        if safe_hasattr(self.context, "row_css_class"):
+            return self.context.row_css_class
+        return None
+
+    @row_css_class.setter
+    def row_css_class(self, value):
+        self.context.row_css_class = value
+
+    @property
     def column_css_class(self):
         if safe_hasattr(self.context, "column_css_class"):
             return self.context.column_css_class
@@ -72,6 +98,16 @@ class GridListing(object):
     @column_css_class.setter
     def column_css_class(self, value):
         self.context.column_css_class = value
+
+    @property
+    def column_content_css_class(self):
+        if safe_hasattr(self.context, "column_content_css_class"):
+            return self.context.column_content_css_class
+        return None
+
+    @column_content_css_class.setter
+    def column_content_css_class(self, value):
+        self.context.column_content_css_class = value
 
     @property
     def enable_masonry(self):

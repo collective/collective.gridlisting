@@ -6,7 +6,6 @@
     :target: https://github.com/collective/collective.gridlisting/actions/workflows/plone-package.yml
 
 
-======================
 collective.gridlisting
 ======================
 
@@ -22,6 +21,48 @@ Features
 - Adds new view template "Grid listing" for "Folder" and "Collection"
 - You get a new "Grid listing" tab when editing a Folder or a Collection where
   you can set various options for the listing template.
+
+
+Get started
+-----------
+
+1. Install collective.gridlisting in the Add-ons controlpanel
+2. Go to a folder and select "Grid listing" from the "Display" menu
+3. Edit the folder and go to the "Grid listing" tab
+4. You can enter CSS classes for the grid items and/or enable masonry layout.
+
+
+Grid setup
+----------
+
+The grid structure is set up as follows:
+
+    +----------------------------------------+
+    | Container row                          |
+    |                                        |
+    |   +-----------------------+            |
+    |   |  Column               |            |
+    |   |                       |            |
+    |   |  +----------------+   |            |
+    |   |  | Column content |   |            |
+    |   |  +----------------+   |            |
+    |   +-----------------------+            |
+    +----------------------------------------+
+
+You can define css classes for each of those three containers.
+
+For example if you simply want a responsive 4/2/1 column layout you can set the `Container row CSS class` to:
+
+  ``row-cols-1 row-cols-lg-2 row-cols-xl-4``
+
+You can then define borders, margins and paddings for the column content with `Column content CSS Class`:
+
+  ``border border-primary m-2 p-2``
+
+And you can further experiment with gutters or backgrounds.
+For more information see the Bootstrap documentation:
+
+https://getbootstrap.com/docs/5.3/layout/grid/
 
 
 Translations
@@ -53,6 +94,12 @@ Compatibility
 -------------
 
 Plone 6, Python 3.8 - 3.11
+
+
+Todo
+----
+
+- Extra options for leadimage position inside the column
 
 
 Contribute

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2023-06-20 12:20+0000\n"
+"POT-Creation-Date: 2023-06-20 13:31+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,7 +19,15 @@ msgid "Additional masonry options"
 msgstr ""
 
 #: collective/gridlisting/behaviors/grid_listing.py
-msgid "Column CSS Class"
+msgid "Column CSS class"
+msgstr ""
+
+#: collective/gridlisting/behaviors/grid_listing.py
+msgid "Column content CSS class"
+msgstr ""
+
+#: collective/gridlisting/behaviors/grid_listing.py
+msgid "Container row CSS class"
 msgstr ""
 
 #: collective/gridlisting/behaviors/grid_listing.py
@@ -33,6 +41,10 @@ msgstr ""
 #: collective/gridlisting/behaviors/grid_listing.py
 #: collective/gridlisting/browser/configure.zcml
 msgid "Grid listing"
+msgstr ""
+
+#: collective/gridlisting/behaviors/grid_listing.py
+msgid "If you want borders or backgrounds inside the column define it here."
 msgstr ""
 
 #: collective/gridlisting/configure.zcml
@@ -61,4 +73,8 @@ msgstr ""
 
 #: collective/gridlisting/configure.zcml
 msgid "collective.gridlisting (uninstall)"
+msgstr ""
+
+#: collective/gridlisting/behaviors/grid_listing.py
+msgid "eg. if you want to set gutter between columns define here."
 msgstr ""

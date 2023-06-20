@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2023-06-20 12:20+0000\n"
-"PO-Revision-Date: 2023-06-20 14:21+0200\n"
+"POT-Creation-Date: 2023-06-20 13:31+0000\n"
+"PO-Revision-Date: 2023-06-20 15:32+0200\n"
 "Last-Translator: Peter Mathis <peter.mathis@kombinat.at>\n"
 "Language-Team: \n"
 "Language: de\n"
@@ -21,8 +21,16 @@ msgid "Additional masonry options"
 msgstr "Zusätzliche Masonry Optionen"
 
 #: collective/gridlisting/behaviors/grid_listing.py
-msgid "Column CSS Class"
-msgstr "Spalten CSS Klasse"
+msgid "Column CSS class"
+msgstr "Spalten CSS"
+
+#: collective/gridlisting/behaviors/grid_listing.py
+msgid "Column content CSS class"
+msgstr "Spalteninhalt CSS"
+
+#: collective/gridlisting/behaviors/grid_listing.py
+msgid "Container row CSS class"
+msgstr "Spaltencontainer CSS"
 
 #: collective/gridlisting/behaviors/grid_listing.py
 msgid "Define grid listing properties. For further information see https://getbootstrap.com/docs/5.3/layout/grid/"
@@ -36,6 +44,10 @@ msgstr "Masonry layout aktivieren"
 #: collective/gridlisting/browser/configure.zcml
 msgid "Grid listing"
 msgstr "Spaltenlayout"
+
+#: collective/gridlisting/behaviors/grid_listing.py
+msgid "If you want borders or backgrounds inside the column define it here."
+msgstr "Definition von Rahmen oder Hintergrundfarben."
 
 #: collective/gridlisting/configure.zcml
 msgid "Installs the collective.gridlisting add-on."
@@ -64,3 +76,7 @@ msgstr ""
 #: collective/gridlisting/configure.zcml
 msgid "collective.gridlisting (uninstall)"
 msgstr ""
+
+#: collective/gridlisting/behaviors/grid_listing.py
+msgid "eg. if you want to set gutter between columns define here."
+msgstr "Definition von Spaltenabständen."
