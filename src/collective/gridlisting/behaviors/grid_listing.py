@@ -16,6 +16,16 @@ class IGridListingMarker(Interface):
     pass
 
 
+LISTING_TITLE_TAGS = (
+    # H1 not allowed
+    "h2",
+    "h3",
+    "h4",
+    "h5",
+    "h6",
+)
+
+
 @provider(IFormFieldProvider)
 class IGridListing(model.Schema):
     """ """
@@ -40,6 +50,12 @@ class IGridListing(model.Schema):
             "If you want borders or backgrounds inside the column define it here."
         ),
         required=False,
+    )
+
+    item_title_tag = schema.Choice(
+        title=_("Listing item title tag"),
+        values=LISTING_TITLE_TAGS,
+        default="h3",
     )
 
     enable_masonry = schema.Bool(
@@ -67,6 +83,7 @@ class IGridListing(model.Schema):
             "row_css_class",
             "column_css_class",
             "column_content_css_class",
+            "item_title_tag",
             "enable_masonry",
             "masonry_options",
         ],
@@ -108,6 +125,16 @@ class GridListing(object):
     @column_content_css_class.setter
     def column_content_css_class(self, value):
         self.context.column_content_css_class = value
+
+    @property
+    def item_title_tag(self):
+        if safe_hasattr(self.context, "item_title_tag"):
+            return self.context.item_title_tag
+        return None
+
+    @item_title_tag.setter
+    def item_title_tag(self, value):
+        self.context.item_title_tag = value
 
     @property
     def enable_masonry(self):

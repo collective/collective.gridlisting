@@ -43,6 +43,7 @@
                                         <div class="col">
 
                                             <div class="mb-1">
+                                                <tal:block replace="structure string:&lt;${context/item_title_tag}&gt;" />
                                                 <a tal:content="python:item_title" tal:attributes="
                                                         href python:item_link;
                                                         class string:$item_type_class $item_wf_state_class url;
@@ -50,6 +51,7 @@
                                                         ">
                                                     Item Title
                                                 </a>
+                                                <tal:block replace="structure string:&lt;/${context/item_title_tag}&gt;" />
                                             </div>
 
                                             <metal:block metal:define-macro="document_byline">

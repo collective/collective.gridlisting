@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2023-06-20 13:31+0000\n"
+"POT-Creation-Date: 2023-06-22 06:47+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -49,6 +49,10 @@ msgstr ""
 
 #: collective/gridlisting/configure.zcml
 msgid "Installs the collective.gridlisting add-on."
+msgstr ""
+
+#: collective/gridlisting/behaviors/grid_listing.py
+msgid "Listing item title tag"
 msgstr ""
 
 #: collective/gridlisting/behaviors/grid_listing.py
