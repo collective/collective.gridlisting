@@ -10,11 +10,23 @@
     type="plone"
     directory="static" />
 
+  <!-- Folder grid listing -->
   <browser:page
-    for="collective.gridlisting.behaviors.grid_listing.IGridListingMarker"
+    for="plone.dexterity.interfaces.IDexterityContainer"
     name="grid_listing"
     permission="zope2.View"
-    class=".views.GridListing"
+    class=".views.FolderGridListing"
+    template="grid_listing.pt"
+    menu="plone_displayviews"
+    title="Grid listing"
+    />
+
+  <!-- Collection grid listing -->
+  <browser:page
+    for="plone.app.contenttypes.behaviors.collection.ISyndicatableCollection"
+    name="grid_listing"
+    permission="zope2.View"
+    class=".views.CollectionGridListing"
     template="grid_listing.pt"
     menu="plone_displayviews"
     title="Grid listing"
