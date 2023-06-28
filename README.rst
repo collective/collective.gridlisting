@@ -37,30 +37,48 @@ Grid setup
 
 The grid structure is set up as follows:
 
-    +----------------------------------------+
-    | Container row                          |
-    |                                        |
-    |   +-----------------------+            |
-    |   |  Column               |            |
-    |   |                       |            |
-    |   |  +----------------+   |            |
-    |   |  | Column content |   |            |
-    |   |  +----------------+   |            |
-    |   +-----------------------+            |
-    +----------------------------------------+
++--------------------------------+
+|  Container row                 |
+|                                |
+|  +--------------------------+  |
+|  |  Column                  |  |
+|  |                          |  |
+|  |  +--------------------+  |  |
+|  |  |  Column content    |  |  |
+|  |  |                    |  |  |
+|  |  |  +------+-------+  |  |  |
+|  |  |  | text | image |  |  |  |
+|  |  |  +------+-------+  |  |  |
+|  |  +--------------------+  |  |
+|  +--------------------------+  |
++--------------------------------+
 
-You can define css classes for each of those three containers.
+You can define css classes for each of those containers.
 
 For example if you simply want a responsive 4/2/1 column layout you can set the `Container row CSS class` to:
 
   ``row-cols-1 row-cols-lg-2 row-cols-xl-4``
 
-You can then define borders, margins and paddings for the column content with `Column content CSS Class`:
+You can also define borders, margins and paddings for the column content with `Column content CSS Class`:
 
   ``border border-primary m-2 p-2``
 
 And you can further experiment with gutters or backgrounds.
-For more information see the Bootstrap documentation:
+
+Inside the column, the text and image information can be defined separately.
+You can for example simply switch the order of text/image with:
+
+  ``Column content text: col order-2``
+
+  ``Column content image: col order-1``
+
+or put the image above the text with:
+
+  ``Column content text: col-12 order-2``
+
+  ``Column content image: col-12 order-1``
+
+For more information on the CSS definitions see the Bootstrap documentation:
 
 https://getbootstrap.com/docs/5.3/layout/grid/
 
@@ -94,12 +112,6 @@ Compatibility
 -------------
 
 Plone 6, Python 3.8 - 3.11
-
-
-Todo
-----
-
-- Extra options for leadimage position inside the column
 
 
 Contribute

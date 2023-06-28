@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2023-06-22 06:47+0000\n"
+"POT-Creation-Date: 2023-06-28 07:51+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,15 +22,31 @@ msgid "Additional masonry options"
 msgstr ""
 
 #: collective.gridlisting/src/collective/gridlisting/behaviors/grid_listing.py
-msgid "Column CSS class"
+msgid "CSS class(es) for preview image in column content"
 msgstr ""
 
 #: collective.gridlisting/src/collective/gridlisting/behaviors/grid_listing.py
-msgid "Column content CSS class"
+msgid "CSS class(es) for title/description/link in column content"
 msgstr ""
 
 #: collective.gridlisting/src/collective/gridlisting/behaviors/grid_listing.py
-msgid "Container row CSS class"
+msgid "Column"
+msgstr ""
+
+#: collective.gridlisting/src/collective/gridlisting/behaviors/grid_listing.py
+msgid "Column content"
+msgstr ""
+
+#: collective.gridlisting/src/collective/gridlisting/behaviors/grid_listing.py
+msgid "Column content image"
+msgstr ""
+
+#: collective.gridlisting/src/collective/gridlisting/behaviors/grid_listing.py
+msgid "Column content text"
+msgstr ""
+
+#: collective.gridlisting/src/collective/gridlisting/behaviors/grid_listing.py
+msgid "Container row"
 msgstr ""
 
 #: collective.gridlisting/src/collective/gridlisting/behaviors/grid_listing.py
@@ -60,6 +76,10 @@ msgstr ""
 
 #: collective.gridlisting/src/collective/gridlisting/behaviors/grid_listing.py
 msgid "Options for \"pat-masonry\" see https://patternslib.com/demos/masonry."
+msgstr ""
+
+#: collective.gridlisting/src/collective/gridlisting/behaviors/grid_listing.py
+msgid "Preview image scale"
 msgstr ""
 
 #: collective.gridlisting/src/collective/gridlisting/behaviors/grid_listing.py

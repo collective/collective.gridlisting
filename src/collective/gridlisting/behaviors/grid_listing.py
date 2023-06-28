@@ -31,13 +31,13 @@ class IGridListing(model.Schema):
     """ """
 
     row_css_class = schema.TextLine(
-        title=_("Container row CSS class"),
+        title=_("Container row"),
         description=_("eg. if you want to set gutter between columns define here."),
         required=False,
     )
 
     column_css_class = schema.TextLine(
-        title=_("Column CSS class"),
+        title=_("Column"),
         description=_(
             "Use grid css class combinations for column. Example: 'col-12 col-md-6 col-xl-3'"
         ),
@@ -45,10 +45,24 @@ class IGridListing(model.Schema):
     )
 
     column_content_css_class = schema.TextLine(
-        title=_("Column content CSS class"),
+        title=_("Column content"),
         description=_(
             "If you want borders or backgrounds inside the column define it here."
         ),
+        required=False,
+    )
+
+    column_content_text_css_class = schema.TextLine(
+        title=_("Column content text"),
+        description=_("CSS class(es) for title/description/link in column content"),
+        default="col",
+        required=False,
+    )
+
+    column_content_image_css_class = schema.TextLine(
+        title=_("Column content image"),
+        description=_("CSS class(es) for preview image in column content"),
+        default="col-3 text-end",
         required=False,
     )
 
@@ -56,6 +70,11 @@ class IGridListing(model.Schema):
         title=_("Listing item title tag"),
         values=LISTING_TITLE_TAGS,
         default="h3",
+    )
+
+    preview_scale = schema.Choice(
+        title=_("Preview image scale"),
+        vocabulary="plone.app.vocabularies.ImagesScales",
     )
 
     enable_masonry = schema.Bool(
@@ -83,7 +102,10 @@ class IGridListing(model.Schema):
             "row_css_class",
             "column_css_class",
             "column_content_css_class",
+            "column_content_text_css_class",
+            "column_content_image_css_class",
             "item_title_tag",
+            "preview_scale",
             "enable_masonry",
             "masonry_options",
         ],
@@ -127,6 +149,26 @@ class GridListing(object):
         self.context.column_content_css_class = value
 
     @property
+    def column_content_text_css_class(self):
+        if safe_hasattr(self.context, "column_content_text_css_class"):
+            return self.context.column_content_text_css_class
+        return None
+
+    @column_content_text_css_class.setter
+    def column_content_text_css_class(self, value):
+        self.context.column_content_text_css_class = value
+
+    @property
+    def column_content_image_css_class(self):
+        if safe_hasattr(self.context, "column_content_image_css_class"):
+            return self.context.column_content_image_css_class
+        return None
+
+    @column_content_image_css_class.setter
+    def column_content_image_css_class(self, value):
+        self.context.column_content_image_css_class = value
+
+    @property
     def item_title_tag(self):
         if safe_hasattr(self.context, "item_title_tag"):
             return self.context.item_title_tag
@@ -135,6 +177,16 @@ class GridListing(object):
     @item_title_tag.setter
     def item_title_tag(self, value):
         self.context.item_title_tag = value
+
+    @property
+    def preview_scale(self):
+        if safe_hasattr(self.context, "preview_scale"):
+            return self.context.preview_scale
+        return None
+
+    @preview_scale.setter
+    def preview_scale(self, value):
+        self.context.preview_scale = value
 
     @property
     def enable_masonry(self):

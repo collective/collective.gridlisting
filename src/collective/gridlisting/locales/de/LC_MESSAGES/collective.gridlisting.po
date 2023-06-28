@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2023-06-22 06:47+0000\n"
-"PO-Revision-Date: 2023-06-22 08:48+0200\n"
+"POT-Creation-Date: 2023-06-28 07:51+0000\n"
+"PO-Revision-Date: 2023-06-28 09:51+0200\n"
 "Last-Translator: Peter Mathis <peter.mathis@kombinat.at>\n"
 "Language-Team: \n"
 "Language: de\n"
@@ -14,23 +14,39 @@ msgstr ""
 "Language-Name: English\n"
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
-"X-Generator: Poedit 3.3.1\n"
+"X-Generator: Poedit 3.3.2\n"
 
 #: collective/gridlisting/behaviors/grid_listing.py
 msgid "Additional masonry options"
 msgstr "Zusätzliche Masonry Optionen"
 
 #: collective/gridlisting/behaviors/grid_listing.py
-msgid "Column CSS class"
-msgstr "Spalten CSS"
+msgid "CSS class(es) for preview image in column content"
+msgstr "CSS Klasse(n) für das Vorschaubild"
 
 #: collective/gridlisting/behaviors/grid_listing.py
-msgid "Column content CSS class"
-msgstr "Spalteninhalt CSS"
+msgid "CSS class(es) for title/description/link in column content"
+msgstr "CSS Klasse(n) für Titel/Beschreibung/Link"
 
 #: collective/gridlisting/behaviors/grid_listing.py
-msgid "Container row CSS class"
-msgstr "Spaltencontainer CSS"
+msgid "Column"
+msgstr "Spalte"
+
+#: collective/gridlisting/behaviors/grid_listing.py
+msgid "Column content"
+msgstr "Spalteninhalt"
+
+#: collective/gridlisting/behaviors/grid_listing.py
+msgid "Column content image"
+msgstr "Spaltenvorschaubild"
+
+#: collective/gridlisting/behaviors/grid_listing.py
+msgid "Column content text"
+msgstr "Spaltentext"
+
+#: collective/gridlisting/behaviors/grid_listing.py
+msgid "Container row"
+msgstr "Spaltencontainer"
 
 #: collective/gridlisting/behaviors/grid_listing.py
 msgid "Define grid listing properties. For further information see https://getbootstrap.com/docs/5.3/layout/grid/"
@@ -60,6 +76,10 @@ msgstr "Listenelement Titel Tag"
 #: collective/gridlisting/behaviors/grid_listing.py
 msgid "Options for \"pat-masonry\" see https://patternslib.com/demos/masonry."
 msgstr "Siehe https://patternslib.com/demos/masonry."
+
+#: collective/gridlisting/behaviors/grid_listing.py
+msgid "Preview image scale"
+msgstr "Vorschaubild Skalierung"
 
 #: collective/gridlisting/behaviors/grid_listing.py
 msgid "See masonry documentation."
