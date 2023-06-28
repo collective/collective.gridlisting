@@ -26,10 +26,10 @@ Features
 Get started
 -----------
 
-1. Install collective.gridlisting in the Add-ons controlpanel
-2. Go to a folder and select "Grid listing" from the "Display" menu
-3. Edit the folder and go to the "Grid listing" tab
-4. You can enter CSS classes for the grid items and/or enable masonry layout.
+1. Install `collective.gridlisting` in the Add-ons controlpanel
+2. Go to a folder and select **Grid listing** from the **Display** menu
+3. Edit the folder and go to the **Grid listing** tab
+4. You can enter CSS classes for the grid items and/or enable **Masonry layout**.
 
 
 Grid setup
@@ -55,11 +55,11 @@ The grid structure is set up as follows:
 
 You can define css classes for each of those containers.
 
-For example if you simply want a responsive 4/2/1 column layout you can set the `Container row CSS class` to:
+For example if you simply want a responsive 4/2/1 column layout you can set the ``Container row CSS class`` to:
 
   ``row-cols-1 row-cols-lg-2 row-cols-xl-4``
 
-You can also define borders, margins and paddings for the column content with `Column content CSS Class`:
+You can also define borders, margins and paddings for the column content with ``Column content CSS Class``:
 
   ``border border-primary m-2 p-2``
 
@@ -81,6 +81,23 @@ or put the image above the text with:
 For more information on the CSS definitions see the Bootstrap documentation:
 
 https://getbootstrap.com/docs/5.3/layout/grid/
+
+
+Special Example: Card listing
+-----------------------------
+
+The following values gives you a listing with cards, cell height 100% and image at the top:
+
+- ``Container row``: ``row-cols-3`` (3 columns)
+- ``Column``: ``pb-3`` (spacing below card)
+- ``Column content``: ``card h-100`` (card outline, 100% cell height)
+- ``Column content text``: ``order-2 card-body`` (text below image)
+- ``Column content image``: ``order-1 card-img-top`` (image above text)
+
+et voila!
+
+NOTE: If you enable **Masonry layout** you have to remove ``h-100`` from ``Column content``
+and you have a masonry card listing like shown here: https://getbootstrap.com/docs/5.3/examples/masonry/
 
 
 Translations

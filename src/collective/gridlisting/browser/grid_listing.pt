@@ -39,91 +39,89 @@
                         <metal:block define-slot="entry">
 
                             <article class="${col_class}">
-                                <div tal:omit-tag="not:col_content_class" class="${col_content_class}">
+                                <div class="${col_content_class}" metal:define-macro="listitem">
 
-                                    <div class="row" metal:define-macro="listitem">
+                                    <div class="${col_content_txt_class}">
 
-                                        <div class="${col_content_txt_class}">
-
-                                            <div class="mb-1">
-                                                <tal:block replace="structure string:&lt;${context/item_title_tag}&gt;" />
-                                                <a tal:content="python:item_title" tal:attributes="
-                                                        href python:item_link;
-                                                        class string:$item_type_class $item_wf_state_class url;
-                                                        title item_type;
-                                                        ">
-                                                    Item Title
-                                                </a>
-                                                <tal:block replace="structure string:&lt;/${context/item_title_tag}&gt;" />
-                                            </div>
-
-                                            <metal:block metal:define-macro="document_byline">
-                                                <div class="mb-1">
-
-                                                    <tal:event condition="python:item_is_event">
-                                                        <tal:date tal:replace="structure python:view.formatted_date(obj)" />
-                                                        <span tal:condition="python:obj.location"
-                                                            i18n:translate="label_event_byline_location">
-                                                            &mdash;
-                                                            <span class="location" tal:content="python:obj.location"
-                                                                i18n:name="location">Oslo</span>
-                                                        </span>
-                                                        &mdash;
-                                                    </tal:event>
-
-                                                    <tal:byline condition="python:view.show_about">
-                                                        <tal:name tal:define="
-                                                                    author python:view.pas_member.info(item_creator);
-                                                                    creator_short_form python:author.get('username');
-                                                                    creator_long_form string:?author=$${python:author.username};
-                                                                    creator_is_openid python:'/' in creator_short_form;
-                                                                    creator_id python:(creator_short_form, creator_long_form)[creator_is_openid];
-                                                                " tal:condition="python:item_creator">
-                                                            <span i18n:translate="label_by_author">
-                                                                by
-                                                                <a tal:content="python: author.get('name_or_id')"
-                                                                    tal:omit-tag="python: not author" tal:attributes="
-                                                                        href string:${view/navigation_root_url}/author/${item_creator};
-                                                                        " i18n:name="author">
-                                                                    Bob Dobalina
-                                                                </a>
-                                                            </span>
-                                                        </tal:name>
-
-                                                        <tal:modified condition="python:item_type != 'Event'">
-                                                            &mdash;
-                                                            <tal:mod i18n:translate="box_last_modified">last modified
-                                                            </tal:mod>
-                                                            <span
-                                                                tal:replace="python:view.toLocalizedTime(item_modified,long_format=1)">
-                                                                August 16, 2001 at 23:35:59
-                                                            </span>
-                                                        </tal:modified>
-
-                                                        <metal:description define-slot="description_slot">
-                                                            <tal:comment replace="nothing">
-                                                                Place custom listing info for custom types here
-                                                            </tal:comment>
-                                                        </metal:description>
-
-                                                    </tal:byline>
-                                                </div>
-                                            </metal:block>
-
-                                            <p class="me-3" tal:condition="python:item_description"
-                                                tal:content="python:item_description">
-                                                description
-                                            </p>
-                                        </div>
-                                        <div class="${col_content_img_class}"
-                                            tal:condition="python:item_has_image and thumb_scale_summary">
-                                            <a href="${item_link}">
-                                                <img
-                                                    tal:replace="structure python:image_scale.tag(item, 'image', scale=thumb_scale_summary, css_class=img_class, loading='lazy')" />
+                                        <div class="mb-1">
+                                            <tal:block replace="structure string:&lt;${context/item_title_tag}&gt;" />
+                                            <a tal:content="python:item_title" tal:attributes="
+                                                    href python:item_link;
+                                                    class string:$item_type_class $item_wf_state_class url;
+                                                    title item_type;
+                                                    ">
+                                                Item Title
                                             </a>
+                                            <tal:block replace="structure string:&lt;/${context/item_title_tag}&gt;" />
                                         </div>
+
+                                        <metal:block metal:define-macro="document_byline">
+                                            <div class="mb-1">
+
+                                                <tal:event condition="python:item_is_event">
+                                                    <tal:date tal:replace="structure python:view.formatted_date(obj)" />
+                                                    <span tal:condition="python:obj.location"
+                                                        i18n:translate="label_event_byline_location">
+                                                        &mdash;
+                                                        <span class="location" tal:content="python:obj.location"
+                                                            i18n:name="location">Oslo</span>
+                                                    </span>
+                                                    &mdash;
+                                                </tal:event>
+
+                                                <tal:byline condition="python:view.show_about">
+                                                    <tal:name tal:define="
+                                                                author python:view.pas_member.info(item_creator);
+                                                                creator_short_form python:author.get('username');
+                                                                creator_long_form string:?author=$${python:author.username};
+                                                                creator_is_openid python:'/' in creator_short_form;
+                                                                creator_id python:(creator_short_form, creator_long_form)[creator_is_openid];
+                                                            " tal:condition="python:item_creator">
+                                                        <span i18n:translate="label_by_author">
+                                                            by
+                                                            <a tal:content="python: author.get('name_or_id')"
+                                                                tal:omit-tag="python: not author" tal:attributes="
+                                                                    href string:${view/navigation_root_url}/author/${item_creator};
+                                                                    " i18n:name="author">
+                                                                Bob Dobalina
+                                                            </a>
+                                                        </span>
+                                                    </tal:name>
+
+                                                    <tal:modified condition="python:item_type != 'Event'">
+                                                        &mdash;
+                                                        <tal:mod i18n:translate="box_last_modified">last modified
+                                                        </tal:mod>
+                                                        <span
+                                                            tal:replace="python:view.toLocalizedTime(item_modified,long_format=1)">
+                                                            August 16, 2001 at 23:35:59
+                                                        </span>
+                                                    </tal:modified>
+
+                                                    <metal:description define-slot="description_slot">
+                                                        <tal:comment replace="nothing">
+                                                            Place custom listing info for custom types here
+                                                        </tal:comment>
+                                                    </metal:description>
+
+                                                </tal:byline>
+                                            </div>
+                                        </metal:block>
+
+                                        <p class="me-3" tal:condition="python:item_description"
+                                            tal:content="python:item_description">
+                                            description
+                                        </p>
+                                    </div>
+                                    <div class="${col_content_img_class}"
+                                        tal:condition="python:item_has_image and thumb_scale_summary">
+                                        <a href="${item_link}">
+                                            <img
+                                                tal:replace="structure python:image_scale.tag(item, 'image', scale=thumb_scale_summary, css_class=img_class, loading='lazy')" />
+                                        </a>
                                     </div>
                                 </div>
+
                             </article>
 
                         </metal:block>

@@ -50,6 +50,7 @@ class IGridListing(model.Schema):
             "If you want borders or backgrounds inside the column define it here."
         ),
         required=False,
+        default="row",
     )
 
     column_content_text_css_class = schema.TextLine(
