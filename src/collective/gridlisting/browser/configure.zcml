@@ -2,6 +2,7 @@
   xmlns="http://namespaces.zope.org/zope"
   xmlns:browser="http://namespaces.zope.org/browser"
   xmlns:plone="http://namespaces.plone.org/plone"
+  xmlns:zcml="http://namespaces.zope.org/zcml"
   i18n_domain="collective.gridlisting">
 
   <!-- Publish static files -->
@@ -30,6 +31,16 @@
     template="grid_listing.pt"
     menu="plone_displayviews"
     title="Grid listing"
+    />
+
+  <!-- contentlisting tile gridlisting -->
+  <browser:page
+    zcml:condition="installed plone.app.standardtiles"
+    name="gridlisting_view"
+    for="*"
+    template="tile_grid_listing.pt"
+    permission="zope2.View"
+    layer="plone.app.standardtiles.contentlisting.IContentListingTileLayer"
     />
 
 </configure>

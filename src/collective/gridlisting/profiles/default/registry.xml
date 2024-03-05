@@ -13,4 +13,11 @@
     <value key="load_defer">False</value>
   </records>
 
+  <record name="plone.app.standardtiles.listing_views">
+    <value purge="false">
+      <element key="gridlisting_view">Gridlisting view</element>
+    </value>
+  </record>
+
+
 </registry>
