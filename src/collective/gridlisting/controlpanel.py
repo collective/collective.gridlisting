@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 from collective.gridlisting import _
 from collective.gridlisting.vocabularies import LISTING_TITLE_TAGS
 from plone.app.registry.browser.controlpanel import ControlPanelFormWrapper
