@@ -5,7 +5,8 @@ Changelog
 1.0.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Add controlpanel to define site-wide defaults.
+  [petschki]
 
 
 1.0.0 (2023-06-28)
