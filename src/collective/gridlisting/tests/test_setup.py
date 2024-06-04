@@ -1,5 +1,5 @@
-# -*- coding: utf-8 -*-
 """Setup tests for this package."""
+
 from collective.gridlisting.testing import (  # noqa: E501
     COLLECTIVE_GRIDLISTING_INTEGRATION_TESTING,
 )

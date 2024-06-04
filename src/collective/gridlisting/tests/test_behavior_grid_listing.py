@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 from collective.gridlisting.behaviors.grid_listing import IGridListingMarker
 from collective.gridlisting.testing import (  # noqa
     COLLECTIVE_GRIDLISTING_INTEGRATION_TESTING,

@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 from collective.gridlisting.testing import (  # noqa: E501
     COLLECTIVE_GRIDLISTING_ACCEPTANCE_TESTING,
 )

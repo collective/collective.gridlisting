@@ -1,6 +1,5 @@
-# -*- coding: utf-8 -*-
-
 from collective.gridlisting import _
+from collective.gridlisting.vocabularies import LISTING_TITLE_TAGS
 from plone import schema
 from plone.autoform.interfaces import IFormFieldProvider
 from plone.supermodel import directives
@@ -14,16 +13,6 @@ from zope.interface import provider
 
 class IGridListingMarker(Interface):
     pass
-
-
-LISTING_TITLE_TAGS = (
-    # H1 not allowed
-    "h2",
-    "h3",
-    "h4",
-    "h5",
-    "h6",
-)
 
 
 @provider(IFormFieldProvider)
@@ -115,7 +104,7 @@ class IGridListing(model.Schema):
 
 @implementer(IGridListing)
 @adapter(IGridListingMarker)
-class GridListing(object):
+class GridListing:
     def __init__(self, context):
         self.context = context
 

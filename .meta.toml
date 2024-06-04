@@ -1,0 +1,17 @@
+# Generated from:
+# https://github.com/plone/meta/tree/main/config/default
+# See the inline comments on how to expand/tweak this configuration file
+[meta]
+template = "default"
+commit-id = "721299ce"
+
+[pyproject]
+codespell_skip = "*.css.map,*.map,*.min.js,yarn.lock"
+
+[github]
+jobs = [
+    "qa",
+    "test",
+    "coverage",
+    "release_ready",
+    ]
