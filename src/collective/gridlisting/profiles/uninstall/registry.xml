@@ -6,4 +6,9 @@
            remove="true"
   />
 
+  <records interface="collective.gridlisting.controlpanel.IGridListingControlPanel"
+           prefix="collective.gridlisting"
+           remove="true"
+  />
+
 </registry>

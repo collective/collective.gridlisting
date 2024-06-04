@@ -2,7 +2,7 @@
 
   <upgradeDepends
       title="Add controlpanel"
-      profile="collective.behavior.relatedmedia:default"
+      profile="collective.gridlisting:default"
       source="1000"
       destination="1100"
       import_steps="plone.app.registry controlpanel"
