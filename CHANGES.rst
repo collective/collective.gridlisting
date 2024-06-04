@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.0.1 (unreleased)
+1.1.0 (2024-06-04)
 ------------------
 
 - Add controlpanel to define site-wide defaults.
