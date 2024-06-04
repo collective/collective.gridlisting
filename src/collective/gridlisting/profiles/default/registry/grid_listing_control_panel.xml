@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<registry
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    i18n:domain="collective.gridlisting">
+
+<!-- -*- extra stuff goes here -*- -->
+
+  <records interface="collective.gridlisting.controlpanels.grid_listing_control_panel.controlpanel.IGridListingControlPanel"
+           prefix="collective.gridlisting.grid_listing_control_panel" />
+
+
+</registry>

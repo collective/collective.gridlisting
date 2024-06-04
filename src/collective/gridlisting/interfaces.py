@@ -10,4 +10,4 @@ class ICollectiveGridlistingLayer(IDefaultBrowserLayer):
 
 
 class ICollectiveGridlistingSettings(Interface):
-    """ registry settings """
+    """registry settings"""
