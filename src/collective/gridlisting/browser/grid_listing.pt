@@ -15,19 +15,20 @@
             from the registry automatically
       -->
       <metal:block use-macro="context/@@listing_view/macros/content-core"
-          tal:define="
-            row_css_class python:view.w['IGridListing.row_css_class'].value;
-            column_css_class python:view.w['IGridListing.column_css_class'].value;
-            column_content_css_class python:view.w['IGridListing.column_content_css_class'].value;
-            column_content_text_css_class python:view.w['IGridListing.column_content_text_css_class'].value;
-            column_content_image_css_class python:view.w['IGridListing.column_content_image_css_class'].value;
-            item_title_tag python:view.w['IGridListing.item_title_tag'].value[0];
-            thumb_scale_summary python:view.w['IGridListing.preview_scale'].value or 'preview';
-            enable_masonry python:'selected' in view.w['IGridListing.enable_masonry'].value;
-            masonry_options python:view.w['IGridListing.masonry_options'].value;
-            show_more_link python:view.w['IGridListing.show_more_link'].value;
-            more_link_text python:view.w['IGridListing.more_link_text'].value;
-          ">
+                   tal:define="
+                     row_css_class python:view.w['IGridListing.row_css_class'].value;
+                     column_css_class python:view.w['IGridListing.column_css_class'].value;
+                     column_content_css_class python:view.w['IGridListing.column_content_css_class'].value;
+                     column_content_text_css_class python:view.w['IGridListing.column_content_text_css_class'].value;
+                     column_content_image_css_class python:view.w['IGridListing.column_content_image_css_class'].value;
+                     item_title_tag python:view.w['IGridListing.item_title_tag'].value[0];
+                     thumb_scale_summary python:view.w['IGridListing.preview_scale'].value or 'preview';
+                     enable_masonry python:'selected' in view.w['IGridListing.enable_masonry'].value;
+                     masonry_options python:view.w['IGridListing.masonry_options'].value;
+                     show_more_link python:view.w['IGridListing.show_more_link'].value;
+                     more_link_text python:view.w['IGridListing.more_link_text'].value;
+                   "
+      >
         <div class="row ${row_css_class} ${python:'pat-masonry' if enable_masonry else ''}"
              metal:fill-slot="entries"
              data-pat-masonry="item-selector: article; ${masonry_options|string:}"
@@ -68,11 +69,11 @@
 
                       <div class="mb-1">
                         <tal:block replace="structure string:&lt;${item_title_tag}&gt;" />
-                        <a href="${item_link}"
-                           class="${item_type_class} ${item_wf_state_class} url"
+                        <a class="${item_type_class} ${item_wf_state_class} url"
+                           href="${item_link}"
                            title="${item_type}"
                            tal:omit-tag="show_more_link"
-                           >${item_title}</a>
+                        >${item_title}</a>
                         <tal:block replace="structure string:&lt;/${item_title_tag}&gt;" />
                       </div>
 
@@ -144,7 +145,8 @@
                       </p>
 
                       <p class="me-3"
-                         tal:condition="show_more_link">
+                         tal:condition="show_more_link"
+                      >
                         <a href="${item_link}">${more_link_text}</a>
                       </p>
 
