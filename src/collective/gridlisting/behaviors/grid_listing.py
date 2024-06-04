@@ -1,11 +1,12 @@
-# -*- coding: utf-8 -*-
-
 from collective.gridlisting import _
+from collective.gridlisting.vocabularies import LISTING_TITLE_TAGS
+from plone import api
 from plone import schema
 from plone.autoform.interfaces import IFormFieldProvider
 from plone.supermodel import directives
 from plone.supermodel import model
 from Products.CMFPlone.utils import safe_hasattr
+from z3c.form.interfaces import IValue
 from zope.component import adapter
 from zope.interface import implementer
 from zope.interface import Interface
@@ -16,16 +17,6 @@ class IGridListingMarker(Interface):
     pass
 
 
-LISTING_TITLE_TAGS = (
-    # H1 not allowed
-    "h2",
-    "h3",
-    "h4",
-    "h5",
-    "h6",
-)
-
-
 @provider(IFormFieldProvider)
 class IGridListing(model.Schema):
     """ """
@@ -34,6 +25,10 @@ class IGridListing(model.Schema):
         title=_("Container row"),
         description=_("eg. if you want to set gutter between columns define here."),
         required=False,
+        default="",
+        missing_value="",
+        # the combination of default and missing_value with the same value
+        # triggers the DefaultValueAdapter below
     )
 
     column_css_class = schema.TextLine(
@@ -42,6 +37,8 @@ class IGridListing(model.Schema):
             "Use grid css class combinations for column. Example: 'col-12 col-md-6 col-xl-3'"
         ),
         required=False,
+        default="",
+        missing_value="",
     )
 
     column_content_css_class = schema.TextLine(
@@ -51,31 +48,37 @@ class IGridListing(model.Schema):
         ),
         required=False,
         default="row",
+        missing_value="row",
     )
 
     column_content_text_css_class = schema.TextLine(
         title=_("Column content text"),
         description=_("CSS class(es) for title/description/link in column content"),
-        default="col",
         required=False,
+        default="col",
+        missing_value="col",
     )
 
     column_content_image_css_class = schema.TextLine(
         title=_("Column content image"),
         description=_("CSS class(es) for preview image in column content"),
-        default="col-3 text-end",
         required=False,
+        default="col-3 text-end",
+        missing_value="col-3 text-end",
     )
 
     item_title_tag = schema.Choice(
         title=_("Listing item title tag"),
         values=LISTING_TITLE_TAGS,
         default="h3",
+        missing_value="h3",
     )
 
     preview_scale = schema.Choice(
         title=_("Preview image scale"),
         vocabulary="plone.app.vocabularies.ImagesScales",
+        default="preview",
+        missing_value="preview",
     )
 
     enable_masonry = schema.Bool(
@@ -83,6 +86,7 @@ class IGridListing(model.Schema):
         description=_("See masonry documentation."),
         required=False,
         default=False,
+        missing_value=False,
     )
 
     masonry_options = schema.TextLine(
@@ -91,6 +95,26 @@ class IGridListing(model.Schema):
             'Options for "pat-masonry" see https://patternslib.com/demos/masonry.'
         ),
         required=False,
+        default="",
+        missing_value="",
+    )
+
+    show_more_link = schema.Bool(
+        title=_("Show more link"),
+        description=_(
+            "Show a separate link to the item below the description/title with the given text below. "
+            "If deactivated, the item tile is used as link."
+        ),
+        required=False,
+        default=False,
+        missing_value=False,
+    )
+
+    more_link_text = schema.TextLine(
+        title=_("Text for 'more' link below title/description"),
+        required=False,
+        default="more",
+        missing_value="more",
     )
 
     directives.fieldset(
@@ -109,13 +133,37 @@ class IGridListing(model.Schema):
             "preview_scale",
             "enable_masonry",
             "masonry_options",
+            "show_more_link",
+            "more_link_text",
         ],
     )
 
 
+@implementer(IValue)
+class DefaultSettingsValue:
+    # get default values from registry
+    # see ???
+
+    def __init__(self, context, request, form, field, widget):
+        self.context = context
+        self.request = request
+        self.field = field
+        self.form = form
+        self.widget = widget
+
+    def get(self):
+        return (
+            api.portal.get_registry_record(
+                f"collective.gridlisting.{self.field.__name__}",
+                default=self.field.default,
+            )
+            or self.field.default
+        )
+
+
 @implementer(IGridListing)
 @adapter(IGridListingMarker)
-class GridListing(object):
+class GridListing:
     def __init__(self, context):
         self.context = context
 
@@ -208,3 +256,23 @@ class GridListing(object):
     @masonry_options.setter
     def masonry_options(self, value):
         self.context.masonry_options = value
+
+    @property
+    def show_more_link(self):
+        if safe_hasattr(self.context, "show_more_link"):
+            return self.context.show_more_link
+        return None
+
+    @show_more_link.setter
+    def show_more_link(self, value):
+        self.context.show_more_link = value
+
+    @property
+    def more_link_text(self):
+        if safe_hasattr(self.context, "more_link_text"):
+            return self.context.more_link_text
+        return None
+
+    @more_link_text.setter
+    def more_link_text(self, value):
+        self.context.more_link_text = value

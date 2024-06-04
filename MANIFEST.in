@@ -6,6 +6,7 @@ exclude *.json
 exclude tox.ini
 exclude *.txt
 exclude *.lock
-exclude .gitlab-ci.yml
+exclude *.cfg
+exclude .coveragerc
 global-exclude *.pyc
 recursive-exclude resources *

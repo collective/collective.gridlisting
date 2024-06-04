@@ -3,6 +3,12 @@
 
   <records interface="Products.CMFPlone.interfaces.IBundleRegistry"
            prefix="plone.bundles/gridlisting-bundle"
-           remove="true" />
+           remove="true"
+  />
+
+  <records interface="collective.gridlisting.controlpanel.IGridListingControlPanel"
+           prefix="collective.gridlisting"
+           remove="true"
+  />
 
 </registry>
