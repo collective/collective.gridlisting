@@ -50,7 +50,7 @@
       />
 
 
-      <utility
+  <utility
       name="collective.gridlisting.listing_title_tags"
       component=".vocabularies.listing_title_tags"
       />
