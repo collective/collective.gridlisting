@@ -1,5 +1,4 @@
 from collective.gridlisting import _
-from collective.gridlisting.vocabularies import LISTING_TITLE_TAGS
 from plone import api
 from plone import schema
 from plone.autoform.interfaces import IFormFieldProvider
@@ -69,16 +68,14 @@ class IGridListing(model.Schema):
 
     item_title_tag = schema.Choice(
         title=_("Listing item title tag"),
-        values=LISTING_TITLE_TAGS,
+        vocabulary="collective.gridlisting.listing_title_tags",
         default="h3",
-        missing_value="h3",
     )
 
     preview_scale = schema.Choice(
         title=_("Preview image scale"),
         vocabulary="plone.app.vocabularies.ImagesScales",
         default="preview",
-        missing_value="preview",
     )
 
     enable_masonry = schema.Bool(

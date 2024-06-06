@@ -5,7 +5,7 @@
       profile="collective.gridlisting:default"
       source="1000"
       destination="1100"
-      import_steps="plone.app.registry controlpanel"
+      import_steps="plone.app.registry controlpanel browserlayer"
       run_deps="True"
       />
 

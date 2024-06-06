@@ -21,12 +21,14 @@
                      column_content_css_class python:view.w['IGridListing.column_content_css_class'].value;
                      column_content_text_css_class python:view.w['IGridListing.column_content_text_css_class'].value;
                      column_content_image_css_class python:view.w['IGridListing.column_content_image_css_class'].value;
-                     item_title_tag python:view.w['IGridListing.item_title_tag'].value[0];
+                     item_title_tag_val python:view.w['IGridListing.item_title_tag'].value;
+                     item_title_tag python: item_title_tag_val[0] if item_title_tag_val else 'h3';
                      thumb_scale_summary python:view.w['IGridListing.preview_scale'].value or 'preview';
                      enable_masonry python:'selected' in view.w['IGridListing.enable_masonry'].value;
                      masonry_options python:view.w['IGridListing.masonry_options'].value;
-                     show_more_link python:view.w['IGridListing.show_more_link'].value;
-                     more_link_text python:view.w['IGridListing.more_link_text'].value;
+                     show_more_link_val python:view.w['IGridListing.show_more_link'].value or [];
+                     show_more_link python:'selected' in show_more_link_val;
+                     more_link_text python:view.w['IGridListing.more_link_text'].value or 'more';
                    "
       >
         <div class="row ${row_css_class} ${python:'pat-masonry' if enable_masonry else ''}"
@@ -72,7 +74,7 @@
                         <a class="${item_type_class} ${item_wf_state_class} url"
                            href="${item_link}"
                            title="${item_type}"
-                           tal:omit-tag="show_more_link"
+                           tal:omit-tag="python:bool(show_more_link)"
                         >${item_title}</a>
                         <tal:block replace="structure string:&lt;/${item_title_tag}&gt;" />
                       </div>
