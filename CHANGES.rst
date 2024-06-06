@@ -5,7 +5,8 @@ Changelog
 1.1.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fix ``missing_value`` for Choice Fields.
+  [petschki]
 
 
 1.1.0 (2024-06-04)
