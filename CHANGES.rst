@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.1.1 (unreleased)
+1.1.1 (2024-06-06)
 ------------------
 
 - Fix ``missing_value`` for Choice Fields.
