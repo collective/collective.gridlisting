@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.1.2 (unreleased)
+1.1.2 (2024-07-02)
 ------------------
 
 - Fix default values for ``show_more_link`` and ``more_link_text``
