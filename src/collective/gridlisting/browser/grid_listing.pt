@@ -23,7 +23,6 @@
                      column_content_image_css_class python:view.w['IGridListing.column_content_image_css_class'].value;
                      item_title_tag_val python:view.w['IGridListing.item_title_tag'].value;
                      item_title_tag python: item_title_tag_val[0] if item_title_tag_val else 'h3';
-                     thumb_scale_summary python:view.w['IGridListing.preview_scale'].value or 'preview';
                      enable_masonry python:'selected' in view.w['IGridListing.enable_masonry'].value;
                      masonry_options python:view.w['IGridListing.masonry_options'].value;
                      show_more_link python:view.get_default('show_more_link');
