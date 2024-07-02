@@ -2,10 +2,11 @@ Changelog
 =========
 
 
-1.1.4 (unreleased)
+1.2.0 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Enable cropping for preview images.
+  [petschki]
 
 
 1.1.3 (2024-07-02)

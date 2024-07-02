@@ -78,6 +78,12 @@ class IGridListing(model.Schema):
         default="preview",
     )
 
+    crop_preview = schema.Bool(
+        title=_("Crop preview image to scale"),
+        required=False,
+        default=False,
+    )
+
     enable_masonry = schema.Bool(
         title=_("Enable masonry layout"),
         description=_("See masonry documentation."),
@@ -127,6 +133,7 @@ class IGridListing(model.Schema):
             "column_content_image_css_class",
             "item_title_tag",
             "preview_scale",
+            "crop_preview",
             "enable_masonry",
             "masonry_options",
             "show_more_link",
@@ -232,6 +239,16 @@ class GridListing:
     @preview_scale.setter
     def preview_scale(self, value):
         self.context.preview_scale = value
+
+    @property
+    def crop_preview(self):
+        if safe_hasattr(self.context, "crop_preview"):
+            return self.context.crop_preview
+        return None
+
+    @crop_preview.setter
+    def crop_preview(self, value):
+        self.context.crop_preview = value
 
     @property
     def enable_masonry(self):
