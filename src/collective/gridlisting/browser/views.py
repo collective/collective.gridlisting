@@ -20,7 +20,9 @@ class GridListingBase(DefaultView):
     @property
     def show_about(self):
         # use registry setting even if not anonymous
-        return api.portal.get_registry_record("plone.allow_anon_views_about", default=False)
+        return api.portal.get_registry_record(
+            "plone.allow_anon_views_about", default=False
+        )
 
 
 class FolderGridListing(GridListingBase, FolderView):
