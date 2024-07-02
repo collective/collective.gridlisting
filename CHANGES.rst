@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.2.0 (unreleased)
+1.2.0 (2024-07-02)
 ------------------
 
 - Enable cropping for preview images.
