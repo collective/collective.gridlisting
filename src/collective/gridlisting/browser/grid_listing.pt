@@ -26,9 +26,8 @@
                      thumb_scale_summary python:view.w['IGridListing.preview_scale'].value or 'preview';
                      enable_masonry python:'selected' in view.w['IGridListing.enable_masonry'].value;
                      masonry_options python:view.w['IGridListing.masonry_options'].value;
-                     show_more_link_val python:view.w['IGridListing.show_more_link'].value or [];
-                     show_more_link python:'selected' in show_more_link_val;
-                     more_link_text python:view.w['IGridListing.more_link_text'].value or 'more';
+                     show_more_link python:view.get_default('show_more_link');
+                     more_link_text python:view.get_default('more_link_text');
                    "
       >
         <div class="row ${row_css_class} ${python:'pat-masonry' if enable_masonry else ''}"

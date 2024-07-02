@@ -4,7 +4,7 @@ from plone import schema
 from plone.autoform.interfaces import IFormFieldProvider
 from plone.supermodel import directives
 from plone.supermodel import model
-from Products.CMFPlone.utils import safe_hasattr
+from plone.base.utils import safe_hasattr
 from z3c.form.interfaces import IValue
 from zope.component import adapter
 from zope.interface import implementer
@@ -104,7 +104,6 @@ class IGridListing(model.Schema):
         ),
         required=False,
         default=False,
-        missing_value=False,
     )
 
     more_link_text = schema.TextLine(

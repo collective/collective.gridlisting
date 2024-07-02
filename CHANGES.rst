@@ -5,7 +5,8 @@ Changelog
 1.1.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fix default values for ``show_more_link`` and ``more_link_text``
+  [petschki]
 
 
 1.1.1 (2024-06-06)
