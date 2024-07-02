@@ -5,7 +5,8 @@ Changelog
 1.1.3 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fix value for ``preview_scale``.
+  [petschki]
 
 
 1.1.2 (2024-07-02)
