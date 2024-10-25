@@ -5,7 +5,8 @@ Changelog
 1.2.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Dependency updates.
+  [petschki]
 
 
 1.2.0 (2024-07-02)
