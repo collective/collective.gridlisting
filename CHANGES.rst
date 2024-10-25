@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.2.1 (unreleased)
+1.2.1 (2024-10-25)
 ------------------
 
 - Dependency updates.
