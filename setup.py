@@ -69,7 +69,7 @@ setup(
         ],
     },
     entry_points="""
-    [z3c.autoinclude.plugin]
+    [plone.autoinclude.plugin]
     target = plone
     """,
 )
