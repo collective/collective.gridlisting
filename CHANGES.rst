@@ -8,6 +8,9 @@ Changelog
 - Fix IValue adapter to lookup only our behavior fields.
   [petschki]
 
+- JS Dependency cleanup and upgrades.
+  [petschki]
+
 
 1.2.1 (2024-10-25)
 ------------------

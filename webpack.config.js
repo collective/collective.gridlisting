@@ -1,7 +1,6 @@
 process.traceDeprecation = true;
 const path = require("path");
 const package_json = require("./package.json");
-const package_json_mockup = require("@plone/mockup/package.json");
 const package_json_patternslib = require("@patternslib/patternslib/package.json");
 const webpack_config = require("@patternslib/dev/webpack/webpack.config").config;
 const mf_config = require("@patternslib/dev/webpack/webpack.mf");
@@ -28,7 +27,6 @@ module.exports = () => {
             remote_entry: config.entry["gridlisting.min"],
             dependencies: {
                 ...package_json_patternslib.dependencies,
-                ...package_json_mockup.dependencies,
                 ...package_json.dependencies,
             },
         })
