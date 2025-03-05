@@ -5,7 +5,8 @@ Changelog
 1.2.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fix IValue adapter to lookup only our behavior fields.
+  [petschki]
 
 
 1.2.1 (2024-10-25)

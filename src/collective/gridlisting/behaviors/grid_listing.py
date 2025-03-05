@@ -6,6 +6,7 @@ from plone.base.utils import safe_hasattr
 from plone.supermodel import directives
 from plone.supermodel import model
 from z3c.form.interfaces import IValue
+from z3c.form.interfaces import NO_VALUE
 from zope.component import adapter
 from zope.interface import implementer
 from zope.interface import Interface
@@ -155,12 +156,15 @@ class DefaultSettingsValue:
         self.widget = widget
 
     def get(self):
+        if "IGridListing" not in self.widget.name:
+            # only lookup our behavior fields
+            return NO_VALUE
         return (
             api.portal.get_registry_record(
                 f"collective.gridlisting.{self.field.__name__}",
-                default=self.field.default,
+                default=NO_VALUE,
             )
-            or self.field.default
+            or NO_VALUE
         )
 
 
