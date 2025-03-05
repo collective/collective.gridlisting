@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.2.2 (unreleased)
+1.2.2 (2025-03-05)
 ------------------
 
 - Fix IValue adapter to lookup only our behavior fields.
