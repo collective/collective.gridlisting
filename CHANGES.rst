@@ -5,7 +5,8 @@ Changelog
 1.2.3 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Refactor default value lookup from adapter to `defaultFactory`.
+  [petschki]
 
 
 1.2.2 (2025-03-05)

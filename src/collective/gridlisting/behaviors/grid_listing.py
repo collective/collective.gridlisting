@@ -5,7 +5,6 @@ from plone.autoform.interfaces import IFormFieldProvider
 from plone.base.utils import safe_hasattr
 from plone.supermodel import directives
 from plone.supermodel import model
-from z3c.form.interfaces import IValue
 from z3c.form.interfaces import NO_VALUE
 from zope.component import adapter
 from zope.interface import implementer
@@ -17,6 +16,26 @@ class IGridListingMarker(Interface):
     pass
 
 
+class DefaultSettingsValue:
+    # get default values from registry
+    # Note: this was an adapter, but the registration
+    # is too broad, so other default values got overriden.
+    # with defaultFactory its explicit, where the value should be set.
+
+    def __init__(self, field_name, default=None):
+        self.field_name = field_name
+        self.default = default
+
+    def __call__(self):
+        return (
+            api.portal.get_registry_record(
+                f"collective.gridlisting.{self.field_name}",
+                default=self.default,
+            )
+            or self.default
+        )
+
+
 @provider(IFormFieldProvider)
 class IGridListing(model.Schema):
     """ """
@@ -25,10 +44,7 @@ class IGridListing(model.Schema):
         title=_("Container row"),
         description=_("eg. if you want to set gutter between columns define here."),
         required=False,
-        default="",
-        missing_value="",
-        # the combination of default and missing_value with the same value
-        # triggers the DefaultValueAdapter below
+        defaultFactory=DefaultSettingsValue("row_css_class", ""),
     )
 
     column_css_class = schema.TextLine(
@@ -37,8 +53,7 @@ class IGridListing(model.Schema):
             "Use grid css class combinations for column. Example: 'col-12 col-md-6 col-xl-3'"
         ),
         required=False,
-        default="",
-        missing_value="",
+        defaultFactory=DefaultSettingsValue("column_css_class", ""),
     )
 
     column_content_css_class = schema.TextLine(
@@ -47,50 +62,48 @@ class IGridListing(model.Schema):
             "If you want borders or backgrounds inside the column define it here."
         ),
         required=False,
-        default="row",
-        missing_value="row",
+        defaultFactory=DefaultSettingsValue("column_content_css_class", "row"),
     )
 
     column_content_text_css_class = schema.TextLine(
         title=_("Column content text"),
         description=_("CSS class(es) for title/description/link in column content"),
         required=False,
-        default="col",
-        missing_value="col",
+        defaultFactory=DefaultSettingsValue("column_content_text_css_class", "col"),
     )
 
     column_content_image_css_class = schema.TextLine(
         title=_("Column content image"),
         description=_("CSS class(es) for preview image in column content"),
         required=False,
-        default="col-3 text-end",
-        missing_value="col-3 text-end",
+        defaultFactory=DefaultSettingsValue(
+            "column_content_image_css_class", "col-3 text-end"
+        ),
     )
 
     item_title_tag = schema.Choice(
         title=_("Listing item title tag"),
         vocabulary="collective.gridlisting.listing_title_tags",
-        default="h3",
+        defaultFactory=DefaultSettingsValue("item_title_tag", "h3"),
     )
 
     preview_scale = schema.Choice(
         title=_("Preview image scale"),
         vocabulary="plone.app.vocabularies.ImagesScales",
-        default="preview",
+        defaultFactory=DefaultSettingsValue("preview_scale", "preview"),
     )
 
     crop_preview = schema.Bool(
         title=_("Crop preview image to scale"),
         required=False,
-        default=False,
+        defaultFactory=DefaultSettingsValue("crop_preview", False),
     )
 
     enable_masonry = schema.Bool(
         title=_("Enable masonry layout"),
         description=_("See masonry documentation."),
         required=False,
-        default=False,
-        missing_value=False,
+        defaultFactory=DefaultSettingsValue("enable_masonry", False),
     )
 
     masonry_options = schema.TextLine(
@@ -99,8 +112,7 @@ class IGridListing(model.Schema):
             'Options for "pat-masonry" see https://patternslib.com/demos/masonry.'
         ),
         required=False,
-        default="",
-        missing_value="",
+        defaultFactory=DefaultSettingsValue("masonry_options", ""),
     )
 
     show_more_link = schema.Bool(
@@ -109,15 +121,13 @@ class IGridListing(model.Schema):
             "Show a separate link to the item below the description/title with the given text below. "
             "If deactivated, the item tile is used as link."
         ),
-        required=False,
-        default=False,
+        defaultFactory=DefaultSettingsValue("show_more_link", False),
     )
 
     more_link_text = schema.TextLine(
         title=_("Text for 'more' link below title/description"),
         required=False,
-        default="more",
-        missing_value="more",
+        defaultFactory=DefaultSettingsValue("more_link_text", "more"),
     )
 
     directives.fieldset(
@@ -141,31 +151,6 @@ class IGridListing(model.Schema):
             "more_link_text",
         ],
     )
-
-
-@implementer(IValue)
-class DefaultSettingsValue:
-    # get default values from registry
-    # see ???
-
-    def __init__(self, context, request, form, field, widget):
-        self.context = context
-        self.request = request
-        self.field = field
-        self.form = form
-        self.widget = widget
-
-    def get(self):
-        if "IGridListing" not in self.widget.name:
-            # only lookup our behavior fields
-            return NO_VALUE
-        return (
-            api.portal.get_registry_record(
-                f"collective.gridlisting.{self.field.__name__}",
-                default=NO_VALUE,
-            )
-            or NO_VALUE
-        )
 
 
 @implementer(IGridListing)

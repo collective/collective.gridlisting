@@ -22,15 +22,4 @@
       marker=".grid_listing.IGridListingMarker"
       />
 
-
-  <adapter
-      factory=".grid_listing.DefaultSettingsValue"
-      for=".grid_listing.IGridListingMarker
-           *
-           *
-           *
-           z3c.form.interfaces.IWidget"
-      name="default"
-      />
-
 </configure>
