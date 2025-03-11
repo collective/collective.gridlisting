@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.2.3 (unreleased)
+1.2.3 (2025-03-11)
 ------------------
 
 - Refactor default value lookup from adapter to `defaultFactory`.
