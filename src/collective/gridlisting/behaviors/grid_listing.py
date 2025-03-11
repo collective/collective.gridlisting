@@ -5,7 +5,6 @@ from plone.autoform.interfaces import IFormFieldProvider
 from plone.base.utils import safe_hasattr
 from plone.supermodel import directives
 from plone.supermodel import model
-from z3c.form.interfaces import NO_VALUE
 from zope.component import adapter
 from zope.interface import implementer
 from zope.interface import Interface
@@ -19,7 +18,7 @@ class IGridListingMarker(Interface):
 class DefaultSettingsValue:
     # get default values from registry
     # Note: this was an adapter, but the registration
-    # is too broad, so other default values got overriden.
+    # is too broad, so other default values got overridden.
     # with defaultFactory its explicit, where the value should be set.
 
     def __init__(self, field_name, default=None):
