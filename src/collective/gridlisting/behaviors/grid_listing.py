@@ -120,6 +120,7 @@ class IGridListing(model.Schema):
             "Show a separate link to the item below the description/title with the given text below. "
             "If deactivated, the item tile is used as link."
         ),
+        required=False,
         defaultFactory=DefaultSettingsValue("show_more_link", False),
     )
 

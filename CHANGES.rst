@@ -5,7 +5,8 @@ Changelog
 1.2.4 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fix non-required boolean field.
+  [petschki]
 
 
 1.2.3 (2025-03-11)
