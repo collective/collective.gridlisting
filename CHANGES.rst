@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.2.4 (unreleased)
+1.2.4 (2025-03-12)
 ------------------
 
 - Fix non-required boolean field.
