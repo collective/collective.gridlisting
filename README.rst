@@ -125,10 +125,10 @@ Install collective.gridlisting by adding it to your buildout::
 and then running ``bin/buildout``
 
 
-Compatibility
--------------
+Contributors
+============
 
-Plone 6, Python 3.8 - 3.11
+- Peter Mathis, peter.mathis@kombinat.at
 
 
 Contribute

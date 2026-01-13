@@ -10,3 +10,4 @@ exclude *.cfg
 exclude .coveragerc
 global-exclude *.pyc
 recursive-exclude resources *
+recursive-exclude news *
