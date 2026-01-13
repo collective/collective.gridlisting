@@ -13,7 +13,7 @@ long_description = "\n\n".join(
 
 setup(
     name="collective.gridlisting",
-    version="2.0.dev0",
+    version="2.0.0",
     description="Behavior for Folder and Collection to manipulate various appearance settings using Bootstrap (column layout) and patternslib (masonry, inject)",
     long_description=long_description,
     # Get more from https://pypi.org/classifiers/

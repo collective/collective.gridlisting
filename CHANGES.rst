@@ -8,6 +8,23 @@ Changelog
 
 .. towncrier release notes start
 
+2.0.0 (2026-01-13)
+------------------
+
+Breaking changes:
+
+
+- Native namespace package support only (drop support for Python <3.10 and Plone <6.1).
+  @petschki
+
+
+Internal:
+
+
+- Update configuration files.
+  [plone devs]
+
+
 1.2.4 (2025-03-12)
 ------------------
 
