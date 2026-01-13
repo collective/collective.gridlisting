@@ -1,0 +1,23 @@
+name: Towncrier news fragment check
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  check-news-fragment:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Check for news fragment
+        run: |
+          git fetch origin ${{ github.base_ref }}
+          CHANGED=$(git diff --name-only origin/${{ github.base_ref }}...HEAD)
+
+          echo "$CHANGED" | grep -E '^news/.+\.(breaking|bugfix|feature|internal|documentation|tests)$' \
+            || (echo "❌ No Towncrier news fragment found in news/" && exit 1)
+
+          echo "✅ Towncrier news fragment found"
